@@ -24,12 +24,12 @@ class Dump {
     static public function console($data = false) {
         if ($data) {
             if (Environment::get() === 'development') {
-                $view   = new View(array('loader' => 'Simple', 'renderer' => 'Simple'));
+							$view   = new View(array('loader' => 'Simple', 'renderer' => 'Simple'));
                 $script = $view->render(
                     array('element' => '<script type="text/javascript">console.info({:data});</script>'),
                     array('data' => json_encode($data))
                 );
-                Dump::$console[] = $script;
+                return Dump::$console[] = $script;
             }
 
             return;
